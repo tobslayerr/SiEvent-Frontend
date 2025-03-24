@@ -1,8 +1,13 @@
 import React from 'react'
+import Home from './pages/Home'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div className="text-3xl font-bold underline">App</div>
+    <div>
+      <Navbar />
+      <Home />
+    </div>
   )
 }
 
