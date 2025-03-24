@@ -25,56 +25,37 @@ const Navbar = () => {
     };
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
   return (
     <>
       <div
-        className={`fixed z-50 top-0 left-1/2 w-full max-w-6xl transform -translate-x-1/2 px-6 py-4 flex items-center justify-between rounded-lg shadow-lg transition-all duration-300 min-h-[75.5px] ${
-          isScrolled ? "bg-white bg-opacity-90 backdrop-blur-md" : "bg-gray-200"
+        className={`fixed z-50 top-0 left-1/2 w-full transform -translate-x-1/2 px-6 py-4 flex items-center justify-between shadow-md transition-all duration-300 min-h-[75.5px] ${
+          isScrolled ? "bg-white bg-opacity-90 backdrop-blur-md" : "bg-gray-100"
         }`}
       >
         <button className="flex items-center active:scale-90 duration-300">
           <FaTicketAlt className="text-xl text-black" />
+          <h1 className="mx-1 font-bold">SiEvent</h1>
         </button>
 
-        <div className="hidden lg:flex items-center space-x-4">
-          <button
-            className="text-black font-medium text-sm hover:text-gray-600 transition duration-300"
-          >
-            Event
+        <div className="hidden lg:flex items-center space-x-8">
+          <button className="text-black font-medium text-sm hover:text-gray-600 transition duration-300 active:scale-90">
+            Discover
           </button>
-          <button
-            className="text-black font-medium text-sm hover:text-gray-600 transition duration-300"
-          >
-            Bantuan
+          <button className="text-black font-medium text-sm hover:text-gray-600 transition duration-300 active:scale-90">
+            My Events
           </button>
-
-          <div className="flex items-center bg-black rounded-full px-3 py-1.5 w-[400px]">
-            <input
-              type="text"
-              placeholder="Cari event disini ..."
-              className="bg-black text-white outline-none placeholder-gray-400 flex-1 px-3 py-1 rounded-full text-xs"
-            />
-            <button className="bg-gray-500 p-2 rounded-full text-white border border-white transition-all duration-300 hover:bg-black hover:opacity-80 active:scale-90">
-              <FaSearch className="text-sm" />
-            </button>
-          </div>
+          <button className="text-black font-medium text-sm hover:text-gray-600 transition duration-300 active:scale-90">
+            Help
+          </button>
         </div>
 
         <div className="hidden lg:flex items-center space-x-3">
-              <button
-                className="border border-black rounded-full px-5 py-2 font-medium text-black text-sm transition hover:bg-black hover:text-white active:scale-90 duration-300 flex justify-center items-center"
-              >
-                Register
-              </button>
-              <button
-                className="bg-black text-white rounded-full px-5 py-2 font-medium text-sm transition hover:bg-gray-200 hover:text-black hover:border hover:border-black active:scale-90 duration-300"
-              >
-                Login
-              </button>
+          <button className="border border-black rounded-full px-5 py-2 font-medium text-black text-sm transition hover:bg-black hover:text-white active:scale-90 duration-300">
+            Register
+          </button>
+          <button className="bg-black text-white rounded-full px-5 py-2 font-medium text-sm transition hover:bg-gray-200 hover:text-black hover:border hover:border-black active:scale-90 duration-300">
+            Login
+          </button>
         </div>
 
         <button className="lg:hidden text-xl text-black" onClick={() => setMenuOpen(!menuOpen)}>
@@ -90,54 +71,40 @@ const Navbar = () => {
       ></div>
 
       <div
-        className={`fixed bottom-0 left-0 w-full bg-gray-200 rounded-t-2xl shadow-lg p-6 transition-transform duration-300 z-50 ${
-          menuOpen ? "translate-y-0" : "translate-y-full"
+        className={`fixed top-0 left-0 w-64 h-full bg-gray-200 shadow-lg p-6 transition-transform duration-300 z-50 ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700 transition"
-        >
-          <FaTimes />
-        </button>
-        <h2 className="text-lg font-semibold mb-4">Menu</h2>
+        <div className="flex items-center mb-6">
+          <FaTicketAlt className="text-xl text-black" />
+          <h1 className="mx-1 font-bold">SiEvent</h1>
+        </div>
+
         <ul className="space-y-4">
           <li>
-            <button
-              className="flex justify-between items-center text-black hover:text-gray-600 transition duration-300"
-              onClick={() => setMenuOpen(false)}
-            >
-              Event 
-            </button>
+           <button className="text-black font-medium text-sm hover:text-gray-600 transition duration-300 active:scale-90">
+            Discover
+           </button>
           </li>
           <li>
-            <button
-              className="flex justify-between items-center text-black hover:text-gray-600 transition duration-300"
-              onClick={() => setMenuOpen(false)}
-            >
-              Bantuan 
-            </button>
+           <button className="text-black font-medium text-sm hover:text-gray-600 transition duration-300 active:scale-90">
+            My Events
+           </button>
+          </li>
+          <li>
+           <button className="text-black font-medium text-sm hover:text-gray-600 transition duration-300 active:scale-90">
+            Help
+           </button>
           </li>
         </ul>
 
-        <div className="flex items-center bg-black rounded-full px-3 py-1.5 mt-5 transition-all duration-300">
-          <input
-            type="text"
-            placeholder="Cari event disini ..."
-            className="bg-black text-white outline-none placeholder-gray-400 flex-1 px-3 py-1 rounded-full text-xs"
-          />
-          <button className="bg-gray-500 p-2 rounded-full text-white border border-white transition-all duration-300 hover:bg-black hover:opacity-80 active:scale-90">
-            <FaSearch className="text-sm" />
+        <div className="mt-6 flex flex-col space-y-2">
+          <button className="border border-black text-black py-2 rounded-full font-medium transition hover:bg-black hover:text-white active:scale-90 duration-300">
+            Register
           </button>
-        </div>
-
-        <div className="mt-6 flex justify-between">
-              <button className="w-1/2 border border-black text-black py-2 rounded-full font-medium transition hover:bg-black hover:text-white active:scale-90 duration-300 flex justify-center items-center">
-                Register
-              </button>
-              <button to="/login" className="w-1/2 bg-black text-white py-2 rounded-full font-medium transition hover:bg-gray-200 hover:text-black border border-black ml-2 active:scale-90 duration-300 flex justify-center items-center">
-                Login
-              </button>
+          <button className="bg-black text-white py-2 rounded-full font-medium transition hover:bg-gray-200 hover:text-black border border-black active:scale-90 duration-300">
+            Login
+          </button>
         </div>
       </div>
     </>
